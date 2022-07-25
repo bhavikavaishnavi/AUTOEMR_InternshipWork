@@ -1,0 +1,71 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+        h4{
+            color:rgb(141, 66, 245);
+        }
+        label{
+            color:rgb(141, 66, 245)!important;
+            font-size: 20!important;
+        }
+
+        button{
+            background-color: rgb(141, 66, 245)!important;
+        }
+    </style>
+</head>
+
+<body>
+    {% extends 'main/header.html' %}
+    {% block content %}
+        <br/>
+        <div class="container">
+            <form method="post">
+                {% csrf_token %}
+                <div class="input-field s12 m6">
+                    <label for="username1">Name:</label>
+                    {{ form.username1 }}
+                </div>
+                <div class="input-field s12 m6">
+                    <label for="username2">Phone Number:</label>
+                    {{ form.username2 }}
+                </div>
+                <label for="text">Upload Prescriptions</label>
+                <div class="input-field s12 m6">
+                    {{ form.file }}
+                </div>
+                <label for="text">Upload X-Rays</label>
+                <div class="input-field s12 m6">
+                    {{ form.file }}
+                </div>
+                <br>
+                <button type="submit" class="btn waves-effect waves-light">Submit</button>
+            </form>
+        </div>
+        <br/>
+    {% endblock %}
+</body>
+
+
+<!-- {#<form method="post">#}
+{#                {% csrf_token %}#}
+{#                <div class="input-field ">#}
+{#                    <input value={{ user.username }} id="req_by" type="text" class="validate">#}
+{#                    <label class="active" for="req_by">Name:</label>#}
+{#                    {{ form.req_by.errors }}#}
+{#                </div>#}
+{#                <div class="input-field ">#}
+{#                    <input id="req_for" type="text" class="validate">#}
+{#                    <label class="active" for="req_for">Phone Number:</label>#}
+{#                    {{ form.req_for.errors }}#}
+{#                </div>#}
+{#                <div class="input-field ">#}
+{#                    <input id="text" type="text" class="validate">#}
+{#                    <label class="active" for="text">Upload Medical Documents:</label>#}
+{#                    {{ form.text.errors }}#}
+{#                </div>#} <br>
+{#                <button type="submit" class="btn waves-effect waves-light">Submit</button>#}
+{#            </form>#} -->
